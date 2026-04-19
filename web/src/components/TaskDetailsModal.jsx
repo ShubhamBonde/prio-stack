@@ -128,8 +128,8 @@ export default function TaskDetailsModal({ task, project, goal, tasksInProject, 
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" onClick={onClose}>
-      <section className="max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-lg border border-slate-700 bg-slate-900 p-5" onClick={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 sm:p-4" onClick={onClose}>
+      <section className="max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-t-xl sm:rounded-lg border border-slate-700 bg-slate-900 p-4 sm:p-5" onClick={(e) => e.stopPropagation()}>
         <div className="mb-4 flex items-center justify-between gap-3">
           <h2 className="text-2xl font-semibold">🧩 Task Details</h2>
           <button type="button" className="rounded border border-slate-600 px-3 py-1 text-sm" onClick={onClose}>

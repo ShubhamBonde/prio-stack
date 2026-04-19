@@ -198,11 +198,32 @@ export default function HomePage() {
                             return;
                           }
                           setHoveredDay(day);
-                          setTooltipPos({ x: event.clientX + 14, y: event.clientY + 14 });
+                          setTooltipPos({
+                            x: event.clientX + 300 > window.innerWidth ? event.clientX - 290 : event.clientX + 14,
+                            y: event.clientY + 150 > window.innerHeight ? event.clientY - 130 : event.clientY + 14,
+                          });
                         }}
                         onMouseMove={(event) => {
                           if (!day.inYear) return;
-                          setTooltipPos({ x: event.clientX + 14, y: event.clientY + 14 });
+                          setTooltipPos({
+                            x: event.clientX + 300 > window.innerWidth ? event.clientX - 290 : event.clientX + 14,
+                            y: event.clientY + 150 > window.innerHeight ? event.clientY - 130 : event.clientY + 14,
+                          });
+                        }}
+                        onClick={(event) => {
+                          if (!day.inYear) {
+                            setHoveredDay(null);
+                            return;
+                          }
+                          if (hoveredDay?.dateKey === day.dateKey) {
+                            setHoveredDay(null);
+                          } else {
+                            setHoveredDay(day);
+                            setTooltipPos({
+                              x: event.clientX + 300 > window.innerWidth ? event.clientX - 290 : event.clientX + 14,
+                              y: event.clientY + 150 > window.innerHeight ? event.clientY - 130 : event.clientY + 14,
+                            });
+                          }
                         }}
                         onMouseLeave={() => setHoveredDay(null)}
                           aria-label={day.label}
@@ -278,11 +299,11 @@ export default function HomePage() {
 
       {isAddGoalModalOpen ? (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 sm:p-4"
           onClick={() => setIsAddGoalModalOpen(false)}
         >
           <section
-            className="w-full max-w-2xl rounded-lg border border-slate-700 bg-slate-900 p-4"
+            className="max-h-[90vh] overflow-y-auto w-full max-w-2xl rounded-t-xl sm:rounded-lg border border-slate-700 bg-slate-900 p-4"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-3 flex items-center justify-between gap-3">

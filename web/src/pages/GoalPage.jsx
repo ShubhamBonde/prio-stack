@@ -150,11 +150,11 @@ export default function GoalPage() {
 
       {isAddProjectModalOpen ? (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 sm:p-4"
           onClick={() => setIsAddProjectModalOpen(false)}
         >
           <section
-            className="w-full max-w-2xl rounded-lg border border-slate-700 bg-slate-900 p-4"
+            className="max-h-[90vh] overflow-y-auto w-full max-w-2xl rounded-t-xl sm:rounded-lg border border-slate-700 bg-slate-900 p-4"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-3 flex items-center justify-between gap-3">
@@ -189,11 +189,11 @@ export default function GoalPage() {
 
       {isEditGoalModalOpen ? (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 sm:p-4"
           onClick={() => setIsEditGoalModalOpen(false)}
         >
           <section
-            className="w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-lg border border-slate-700 bg-slate-900 p-5"
+            className="w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-t-xl sm:rounded-lg border border-slate-700 bg-slate-900 p-4 sm:p-5"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-3 flex items-center justify-between gap-3">
