@@ -15,7 +15,7 @@ services:
     rootDir: web
     plan: free
     buildCommand: npm install && npm run build
-    publishPath: dist
+    publishDirectory: dist
     envVars:
       - key: VITE_API_URL
         fromService:
