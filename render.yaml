@@ -1,0 +1,24 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: priostack-backend
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+
+  # Frontend Static Site
+  - type: web
+    name: priostack-frontend
+    runtime: static
+    rootDir: web
+    plan: free
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: priostack-backend
+          envVarKey: RENDER_EXTERNAL_URL
